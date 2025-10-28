@@ -1,0 +1,16 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+[[services]]
+name = "job-matcher-backend"
+
+[services.variables]
+ARTIFACT_DIR = "/app/backend/artifacts"
+ALLOWED_ORIGINS = "*"
+LOG_LEVEL = "INFO"
