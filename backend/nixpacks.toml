@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python310", "python310Packages.pip", "curl"]
+
+[phases.install]
+cmd = "python -m pip install -r requirements.txt"
+
+[start]
+cmd = "uvicorn app:app --host 0.0.0.0 --port $PORT"
